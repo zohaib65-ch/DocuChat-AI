@@ -60,13 +60,7 @@ export function DocumentSidebar({
                 <span className="font-bold text-base text-slate-900 dark:text-slate-100 tracking-tight">
                   DocuChat AI
                 </span>
-                <Badge variant="outline" className="text-[10px] px-1.5 py-0 h-4 bg-blue-50 dark:bg-blue-950/40 text-blue-600 border-blue-200 dark:border-blue-900">
-                  RAG
-                </Badge>
               </div>
-              <p className="text-[11px] text-slate-400">
-                Document Q&A with LangChain
-              </p>
             </div>
           </div>
 

@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DocuChat AI — Document Q&A with LangChain",
+  title: "DocuChat AI",
   description: "AI-powered document Q&A application built with Next.js, LangChain, and Google Gemini.",
   icons: {
     icon: [
