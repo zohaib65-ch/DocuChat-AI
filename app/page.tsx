@@ -78,7 +78,7 @@ export default function Home() {
       const notifyMessage: ChatMessage = {
         id: `msg_${Date.now()}_system`,
         role: "assistant",
-        content: `${newDoc.name} processed successfully!\n\nExtracted text was split into **${newDoc.totalChunks} chunks** and indexed into the vector store. You can now ask questions about this document!`,
+        content: "",
         timestamp: Date.now(),
       };
       setMessages((prev) => [...prev, notifyMessage]);
