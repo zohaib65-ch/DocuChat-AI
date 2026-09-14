@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { ChatMessage } from "@/types";
 import { ChatMessageItem } from "./chat-message";
 import { ChatInput } from "./chat-input";
 import { ThinkingIndicator } from "./thinking-indicator";
-import { Sparkles, FileText, HelpCircle, ArrowRight, ShieldCheck, Zap } from "lucide-react";
+import { Sparkles} from "lucide-react";
 
 interface ChatContainerProps {
   messages: ChatMessage[];
@@ -16,20 +16,12 @@ interface ChatContainerProps {
   onSelectPrompt?: (prompt: string) => void;
 }
 
-const STARTER_PROMPTS = [
-  "What are the main topics discussed in this document?",
-  "Give me a bullet-point executive summary.",
-  "What key findings or metrics are highlighted?",
-  "Are there any deadlines or action items mentioned?",
-];
-
 export function ChatContainer({
   messages,
   isLoading,
   onSendMessage,
   hasDocuments,
   selectedDocumentName,
-  onSelectPrompt,
 }: ChatContainerProps) {
   const scrollEndRef = useRef<HTMLDivElement>(null);
 
@@ -56,32 +48,6 @@ export function ChatContainer({
                 Upload your PDFs and documents to the sidebar, then ask questions to get instant answers backed by citations and retrieved source text.
               </p>
 
-             
-
-              {/* Starter Question Chips */}
-              <div className="mt-8 w-full max-w-lg">
-                <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">
-                  {hasDocuments ? "Try asking a question:" : "Sample questions you can ask once documents are uploaded:"}
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-left">
-                  {STARTER_PROMPTS.map((prompt, i) => (
-                    <button
-                      key={i}
-                      onClick={() => {
-                        if (hasDocuments) {
-                          onSendMessage(prompt);
-                        } else if (onSelectPrompt) {
-                          onSelectPrompt(prompt);
-                        }
-                      }}
-                      className="group flex items-center justify-between p-3 rounded-xl border border-slate-200/80 dark:border-slate-800/80 bg-white dark:bg-slate-900 text-xs text-slate-700 dark:text-slate-300 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-all shadow-2xs hover:shadow-xs cursor-pointer"
-                    >
-                      <span className="line-clamp-2 pr-2">{prompt}</span>
-                      <ArrowRight className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-blue-500 shrink-0" />
-                    </button>
-                  ))}
-                </div>
-              </div>
             </div>
           ) : (
             /* Active Messages List */
